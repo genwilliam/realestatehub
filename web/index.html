@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RealEstateHub</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>RealEstateHub</h1>
+      <div id="auth-status">未登录</div>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>用户登录 / 注册</h2>
+        <div class="form-row">
+          <label>手机号</label>
+          <input id="phone" type="text" placeholder="请输入手机号" />
+        </div>
+        <div class="form-row">
+          <label>密码</label>
+          <input id="password" type="password" placeholder="请输入密码" />
+        </div>
+        <div class="form-row">
+          <label>姓名（注册时必填）</label>
+          <input id="name" type="text" placeholder="姓名" />
+        </div>
+        <div class="btn-row">
+          <button id="btn-login">登录</button>
+          <button id="btn-register" class="secondary">注册</button>
+          <button id="btn-logout" class="danger">退出登录</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>房源搜索</h2>
+        <div class="form-inline">
+          <input id="q-region" type="text" placeholder="区域" />
+          <input id="q-layout" type="text" placeholder="户型" />
+          <input id="q-min" type="number" placeholder="最低价" />
+          <input id="q-max" type="number" placeholder="最高价" />
+          <button id="btn-search">搜索</button>
+        </div>
+        <div id="houses" class="list"></div>
+      </section>
+
+      <section class="card">
+        <h2>房源详情 & 操作</h2>
+        <div id="house-detail" class="detail">请选择房源查看详情</div>
+        <div class="form-inline">
+          <input id="appointment-time" type="datetime-local" />
+          <button id="btn-appointment">提交预约</button>
+          <button id="btn-fav">收藏/取消收藏</button>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
