@@ -6,11 +6,14 @@ import com.example.realestatehub.util.SecurityUtils;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/favorites")
-@CrossOrigin(origins = "http://localhost:63344") // 允许跨域
 @RequiredArgsConstructor
 @Validated
 public class FavoriteController {

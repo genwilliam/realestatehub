@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/houses")
-@CrossOrigin(origins = "http://localhost:63344") // 允许跨域
 @RequiredArgsConstructor
 public class HouseController {
 

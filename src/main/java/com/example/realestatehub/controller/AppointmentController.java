@@ -14,7 +14,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/appointments")
-@CrossOrigin(origins = "http://localhost:63344") // 允许跨域
 @RequiredArgsConstructor
 public class AppointmentController {
 

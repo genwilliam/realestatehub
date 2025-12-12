@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.math.BigDecimal;
+
 public interface HouseRepository extends JpaRepository<House, Long> {
 
     @Query("""
@@ -20,8 +22,8 @@ public interface HouseRepository extends JpaRepository<House, Long> {
             """)
     Page<House> search(@Param("region") String region,
                        @Param("status") HouseStatus status,
-                       @Param("minPrice") Double minPrice,
-                       @Param("maxPrice") Double maxPrice,
+                       @Param("minPrice") BigDecimal minPrice,
+                       @Param("maxPrice") BigDecimal maxPrice,
                        @Param("layout") String layout,
                        Pageable pageable);
 }
