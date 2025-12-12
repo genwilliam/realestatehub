@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:8080";
+const API_BASE = ""; // 默认同域。如果后端端口不同，改为例如 "http://localhost:8080"
 
 const state = {
     token: null,
