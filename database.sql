@@ -1,8 +1,9 @@
 -- Database initialization for RealEstateHub
 -- Adjust encoding/engine as needed before running in your environment.
+
 CREATE DATABASE IF NOT EXISTS realestatehub
-    DEFAULT CHARACTER SET utf8
-    DEFAULT COLLATE utf8_general_ci;
+  DEFAULT CHARACTER SET utf8mb4
+  DEFAULT COLLATE utf8mb4_general_ci;
 USE realestatehub;
 
 -- Users
@@ -120,29 +121,3 @@ CREATE TABLE IF NOT EXISTS browse_log (
     CONSTRAINT fk_browse_house FOREIGN KEY (house_id) REFERENCES house (id)
 ) ENGINE=InnoDB;
 
-
-USE realestatehub;
-
--- 插入默认用户
-INSERT INTO user (phone, password, name, role, enabled, created_at, updated_at)
-VALUES ('18800000000', '123456', 'admin', 'ADMIN', 1, NOW(), NOW());
-
--- 获取刚插入用户的 id
-SET @user_id = LAST_INSERT_ID();
-
--- 插入管理员信息
-INSERT INTO admin (user_id, super_admin, created_at, updated_at)
-VALUES (@user_id, 1, NOW(), NOW());
-
--- 插入房源
-SET FOREIGN_KEY_CHECKS = 0;
-
-INSERT INTO house (title, description, price, area, region, address, layout, status, approved, publish_time, view_count, agent_id, created_at, updated_at)
-VALUES
-    ('朝阳公寓', '位于北京市朝阳区，交通便利，采光好。', 3500000.00, 90.0, '北京市-朝阳区', '朝阳北路123号', '2室1厅', 'AVAILABLE', 1, NOW(), 0, 1, NOW(), NOW()),
-    ('浦东豪宅', '上海浦东新区高档住宅，带花园和地下车库。', 12000000.00, 250.0, '上海市-浦东新区', '陆家嘴东路456号', '4室3厅', 'AVAILABLE', 1, NOW(), 0, 1, NOW(), NOW()),
-    ('深圳福田小区', '深圳福田区现代小区，周边配套完善。', 5000000.00, 110.0, '深圳市-福田区', '福田街道789号', '3室2厅', 'AVAILABLE', 1, NOW(), 0, 1, NOW(), NOW()),
-    ('广州天河公寓', '广州天河区精装修公寓，交通便利。', 3200000.00, 85.0, '广州市-天河区', '天河路321号', '2室1厅', 'AVAILABLE', 1, NOW(), 0, 1, NOW(), NOW()),
-    ('杭州西湖别墅', '杭州西湖区别墅，环境优美，景观好。', 8000000.00, 200.0, '杭州市-西湖区', '西湖路654号', '4室3厅', 'AVAILABLE', 1, NOW(), 0, 1, NOW(), NOW());
-
-SET FOREIGN_KEY_CHECKS = 1;
